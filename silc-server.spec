@@ -1,5 +1,5 @@
 %define name silc-server
-%define version 0.9.20
+%define version 1.0.4
 %define release %mkrel 1
 
 Summary:	Server for the secure Internet Live Conferencing (SILC) protocol
@@ -90,5 +90,4 @@ rm -rf "$RPM_BUILD_ROOT"
 %config(noreplace) %_sysconfdir/silc/silcd.conf
 %_mandir/man5/*
 %_mandir/man8/*
-/var/log/silc/*
-
+%_logdir/silc/*
