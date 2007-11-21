@@ -1,5 +1,5 @@
 %define name silc-server
-%define version 1.0.4
+%define version 1.1
 %define release %mkrel 1
 
 Summary:	Server for the secure Internet Live Conferencing (SILC) protocol
@@ -33,10 +33,10 @@ different compared to IRC.
 %setup -q -n %{name}-%{version}
 
 chmod 644 CHANGES COPYING CREDITS README TODO doc/FAQ
-chmod 644 doc/example_silcd.conf doc/silcalgs.conf doc/*.txt
+#chmod 644 doc/example_silcd.conf doc/silcalgs.conf doc/*.txt
 
 %build
-%configure --cache-file=`pwd`/config.cache --with-etcdir=%{_silcetcdir} \
+%configure2_5x --with-etcdir=%{_silcetcdir} \
 --with-helpdir=%{_silcdatadir}/help --with-logsdir=%{_var}/log/silc \
 --mandir=%{_mandir} --with-simdir=%{_silclibdir}/modules \
 --libdir=%{_silclibdir} \
@@ -54,7 +54,7 @@ rm -rf "$RPM_BUILD_ROOT"
 
 make install DESTDIR="$RPM_BUILD_ROOT" PREFIX="$RPM_BUILD_ROOT/usr" 
 
-install -m 644 doc/example_silcd.conf $RPM_BUILD_ROOT/%{_sysconfdir}/silc/silcd.conf
+#install -m 644 -D doc/example_silcd.conf $RPM_BUILD_ROOT/%{_sysconfdir}/silc/silcd.conf
 
 # creat log files
 touch $RPM_BUILD_ROOT/var/log/silc/silcd_fatals.log
@@ -66,7 +66,7 @@ touch $RPM_BUILD_ROOT/var/log/silc/silcd.log
 rm -fr $RPM_BUILD_ROOT%{_prefix}/doc
 rm -rf $RPM_BUILD_ROOT%_prefix/libsilc*
 # delete libraries and modules (same as libsilclient)
-rm -rf $RPM_BUILD_ROOT/%{_sysconfdir}/silc/silcalgs.conf
+rm -rf $RPM_BUILD_ROOT/%{_sysconfdir}/silcalgs.conf
 rm -rf $RPM_BUILD_ROOT%_libdir/
 # remove private keys files (generate it with silcd -C)
 rm -rf $RPM_BUILD_ROOT/%{_sysconfdir}/silc/silcd.prv
@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT/%{_sysconfdir}/silc/silcd.pub
 %post
 echo "Post-install : generate keys"
 
-/usr/sbin/silcd -C /etc/silc
+/usr/sbin/silcd -C /etc
 chmod 600 /etc/silc/silcd.prv
 
 %clean
@@ -87,7 +87,7 @@ rm -rf "$RPM_BUILD_ROOT"
 %defattr(-,root,root)
 %doc CHANGES COPYING CREDITS README TODO doc/FAQ
 %_sbindir/*
-%config(noreplace) %_sysconfdir/silc/silcd.conf
+%config(noreplace) %_sysconfdir/*.conf
 %_mandir/man5/*
 %_mandir/man8/*
 %_logdir/silc/*
