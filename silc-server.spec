@@ -12,7 +12,6 @@ Group:		Networking/Chat
 URL:		http://www.silcnet.org/
 Requires:	silc-client
 BuildRequires:  ncurses-devel >= 5.2
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 SILC (Secure Internet Live Conferencing) is a protocol which provides
