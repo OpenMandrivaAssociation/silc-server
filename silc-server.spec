@@ -9,6 +9,7 @@ Release:	%{release}
 Source:		ftp://ftp.silcnet.org/silc/server/sources/%{name}-%{version}.tar.bz2
 License:	GPL
 Group:		Networking/Chat
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.silcnet.org/
 Requires:	silc-client
 BuildRequires:  ncurses-devel >= 5.2
