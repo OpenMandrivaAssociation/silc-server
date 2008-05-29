@@ -1,5 +1,5 @@
 %define name silc-server
-%define version 1.1
+%define version 1.1.7
 %define release %mkrel 1
 
 Summary:	Server for the secure Internet Live Conferencing (SILC) protocol
@@ -32,7 +32,7 @@ different compared to IRC.
 
 %setup -q -n %{name}-%{version}
 
-chmod 644 CHANGES COPYING CREDITS README TODO doc/FAQ
+#chmod 644 CHANGES COPYING CREDITS README TODO doc/FAQ
 #chmod 644 doc/example_silcd.conf doc/silcalgs.conf doc/*.txt
 
 %build
@@ -85,7 +85,7 @@ rm -rf "$RPM_BUILD_ROOT"
 
 %files
 %defattr(-,root,root)
-%doc CHANGES COPYING CREDITS README TODO doc/FAQ
+%doc COPYING CREDITS README TODO doc/FAQ
 %_sbindir/*
 %config(noreplace) %_sysconfdir/*.conf
 %_mandir/man5/*
