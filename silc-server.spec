@@ -9,6 +9,7 @@ Source:		ftp://ftp.silcnet.org/silc/server/sources/%{name}-%{version}.tar.bz2
 Requires:	silc-client
 BuildRequires:  ncurses-devel >= 5.2
 BuildRequires:	nasm
+BuildRequires:	silc-toolkit-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
