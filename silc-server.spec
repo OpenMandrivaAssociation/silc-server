@@ -1,7 +1,7 @@
 Summary:	Server for the secure Internet Live Conferencing (SILC) protocol
 Name:		silc-server
 Version:	1.1.11
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 Group:		Networking/Chat
 URL:		http://www.silcnet.org/
