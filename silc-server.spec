@@ -1,6 +1,6 @@
 Summary:	Server for the secure Internet Live Conferencing (SILC) protocol
 Name:		silc-server
-Version:	1.1.12
+Version:	1.1.14
 Release:	%mkrel 1
 License:	GPLv2
 Group:		Networking/Chat
@@ -9,7 +9,7 @@ Source:		ftp://ftp.silcnet.org/silc/server/sources/%{name}-%{version}.tar.bz2
 Requires:	silc-client
 BuildRequires:  ncurses-devel >= 5.2
 BuildRequires:	nasm
-BuildRequires:	silc-toolkit-devel
+BuildRequires:	silc-toolkit-devel >= 1.1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
