@@ -4,7 +4,7 @@ Version:	1.1.18
 Release:	%mkrel 2
 License:	GPLv2
 Group:		Networking/Chat
-URL:		http://www.silcnet.org/
+URL:		https://www.silcnet.org/
 Source:		ftp://ftp.silcnet.org/silc/server/sources/%{name}-%{version}.tar.bz2
 Requires:	silc-client
 BuildRequires:  ncurses-devel >= 5.2
