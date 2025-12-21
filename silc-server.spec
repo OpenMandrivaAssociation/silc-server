@@ -7,6 +7,11 @@ Group:		Networking/Chat
 URL:		https://www.silcnet.org/
 Source:		ftp://ftp.silcnet.org/silc/server/sources/%{name}-%{version}.tar.bz2
 Requires:	silc-client
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  ncurses-devel >= 5.2
 BuildRequires:	nasm
 BuildRequires:	silc-toolkit-devel >= 1.1
